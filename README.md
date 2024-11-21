@@ -24,10 +24,10 @@ This file serves as the core backend for your LMS. It contains all the necessary
 CRUD Functions for Each Table:
 
 Functions to add, update, delete, and fetch records from the tables:
-Books: Functions to manage books (e.g., add_book, update_book, delete_book, get_books).
-Authors: Functions to manage authors (e.g., add_author, get_authors).
-Borrowers: Functions to manage borrower information.
-Borrowed_Books: Functions to handle borrowing and returning operations.
+- Books: Functions to manage books (e.g., add_book, update_book, delete_book, get_books).
+- Authors: Functions to manage authors (e.g., add_author, get_authors).
+- Borrowers: Functions to manage borrower information.
+- Borrowed_Books: Functions to handle borrowing and returning operations.
 EXAMPLE:
 ```
 from lib import add_book, get_books
