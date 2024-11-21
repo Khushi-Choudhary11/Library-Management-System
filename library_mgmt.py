@@ -114,8 +114,7 @@ def borrow_book():
                 """,
                 (book_id, borrower_id, borrow_date, return_date)
             )
-
-            # Update availability in Books table
+            
             cursor.execute("UPDATE Books SET availability = FALSE WHERE id = %s", (book_id,))
             conn.commit()
 
@@ -154,7 +153,7 @@ def return_book():
                 (return_date, book_id)
             )
 
-            # Set the book's availability to TRUE
+            
             cursor.execute(
                 "UPDATE Books SET availability = TRUE WHERE id = %s",
                 (book_id,)
@@ -241,18 +240,16 @@ def weekly_borrow_report():
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        # Updated SQL query to include borrower name and borrow date
         query = """
             SELECT b.title AS book_title, 
-                   bo.name AS borrower_name, 
-                   bb.borrow_date, 
+                   STRING_AGG(bo.name || ' (' || TO_CHAR(bb.borrow_date, 'YYYY-MM-DD') || ')', ', ') AS borrower_details,
                    COUNT(bb.book_id) AS borrow_count
             FROM Borrowed_Books bb
             JOIN Books b ON bb.book_id = b.id
             JOIN Borrowers bo ON bb.borrower_id = bo.id
             WHERE bb.borrow_date >= (CURRENT_DATE - INTERVAL '7 days')
-            GROUP BY b.id, bo.name, bb.borrow_date
-            ORDER BY borrow_count DESC, bb.borrow_date ASC
+            GROUP BY b.id
+            ORDER BY borrow_count DESC
         """
         cursor.execute(query)
         report_data = cursor.fetchall()
