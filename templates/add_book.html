@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a Book</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h2>Add a Book</h2>
+    <form method="POST">
+        <div class="form-group">
+        <label for="book_id">Book ID (e.g., B001):</label>
+        <input type="text" id="id" name="id" required><br>
+        </div>
+        <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" name="title" required><br>
+        </div>
+        <div class="form-group">
+        <label for="author_id">Author ID:</label>
+        <input type="text" name="author_id" required><br>
+        </div>
+        <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" required><br>
+        </div>
+        <button type="submit" class="btn-primary">Add Book</button>
+    </form>
+    <br>
+    <a href="/" class="btn-primary">Back to Home</a>
+    {% endblock %}
+    <br>
+    
+</body>
+ 
+</html>

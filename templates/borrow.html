@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Borrow a Book</h1>
+    <form method="POST" action="/borrow">
+        <!-- Dropdown for Books -->
+        <label for="book_id">Select Book:</label>
+        <select id="book_id" name="book_id" required>
+            <option value="" disabled selected>Select a book</option>
+            {% for book in books %}
+                <option value="{{ book[0] }}">{{ book[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <!-- Dropdown for Borrowers -->
+        <label for="borrower_id">Select Borrower:</label>
+        <select id="borrower_id" name="borrower_id" required>
+            <option value="" disabled selected>Select a borrower</option>
+            {% for borrower in borrowers %}
+                <option value="{{ borrower[0] }}">{{ borrower[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <!-- Borrow Date -->
+        <label for="borrow_date">Borrow Date:</label>
+        <input type="date" id="borrow_date" name="borrow_date" value="{{ current_date }}" required>
+        <br><br>
+
+        <!-- Return Date (Optional) -->
+        <label for="return_date">Return Date (Optional):</label>
+        <input type="date" id="return_date" name="return_date">
+        <br><br>
+
+        <button type="submit" class="btn-primary">Submit</button>
+    </form>
+    <br>
+    <a href="/" class="btn-primary">Go Back to Home</a>
+    {% endblock %}
+    <br>
+
+</body>
+</html>
+

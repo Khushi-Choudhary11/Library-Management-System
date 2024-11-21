@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Add Author</h1>
+    <form method="POST" action="/add_author">
+        <label for="id">Author ID (e.g., A001):</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country"><br><br>
+
+        <button type="submit" class="btn-primary">Add Author</button>
+    </form>
+    <br>
+    <a href="/" class="btn-primary">Back to Home</a>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f0fa; /* Light lavender background */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    color: #3c2a4d; /* Dark lavender text */
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #6c3483; /* Deep lavender background */
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #d8b4e2; /* Soft lavender on hover */
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+h1, h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4c3373; /* Darker lavender */
+}
+
+/* Buttons */
+.btn-primary, .btn-danger {
+    background-color: #9a7bbf; /* Medium lavender */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    background-color: #784aa7; /* Deep lavender on hover */
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #5e4379; /* Muted lavender */
+}
+
+input[type="text"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, select:focus {
+    border-color: #9a7bbf;
+    outline: none;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f7f6f9;
+}
+
+th {
+    background-color: #6c3483; /* Deep lavender */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #ede2f4; /* Light lavender for alternating rows */
+}
+
+/* Alerts */
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #8e44ad; /* Bright lavender */
+    color: white;
+}
+
+.alert-danger {
+    background-color: #c0392b; /* Muted red for errors */
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .navbar {
+        font-size: 14px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    .btn-primary, .btn-danger {
+        width: 100%; /* Full width buttons on small screens */
+    }
+}

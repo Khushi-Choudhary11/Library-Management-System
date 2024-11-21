@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Add New Borrower</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('add_borrower') }}" method="POST">
+        <div class="form-group">
+            <label for="id">Borrower ID (eg. BR001)</label>
+            <input type="text" id="id" name="id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" name="contact" class="form-control" required>
+        </div>
+        <button type="submit" class="btn-primary">Add Borrower</button>
+    </form>
+</div>
+<a href="/" class="btn-primary">Back to Home</a>
+{% endblock %}
+</body>
+
+</html>

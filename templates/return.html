@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Return a Book</h1>
+    <form method="POST" action="/return">
+        <!-- Dropdown for Borrowed Books -->
+        <label for="book_id">Select Borrowed Book:</label>
+        <select id="book_id" name="book_id" required>
+            <option value="" disabled selected>Select a borrowed book</option>
+            {% for book in books %}
+                <option value="{{ book[0] }}">{{ book[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <!-- Return Date -->
+        <label for="return_date">Return Date:</label>
+        <input type="date" id="return_date" name="return_date" value="{{ current_date }}">
+        <br><br>
+
+        <button type="submit" class="btn-primary">Return Book</button>
+    </form>
+    <br>
+    <a href="/" class="btn-primary">Go Back to Home</a>
+    {% endblock %}
+</body>
+</html>

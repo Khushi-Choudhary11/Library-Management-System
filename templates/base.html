@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('view_authors') }}">View Authors</a>
+        <a href="{{ url_for('add_author') }}">Add Authors</a>
+        <a href="{{ url_for('view_books') }}">View Books</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('borrow_book') }}">Borrow Book</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{url_for('weekly_borrow_report')}}">Weekly Borrrow Report</a>
+        <a href="{{ url_for('add_borrower') }}">Add Borrower</a>
+        <a href="{{url_for('help')}}">Help</a>
+        
+    </div>
+    
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

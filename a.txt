@@ -1,0 +1,47 @@
+Project Title: Library Management System
+
+Objective:
+
+Create a basic system to manage books, authors, and borrowers in a library.
+
+Project Scope:
+
+Database Design:
+
+Create a database using SQL with the following tables:
+•Books (id, title, author_id, genre, availability)
+•Authors (id, name, country)
+•Borrowers (id, name, contact)
+•Borrowed_Books (id, book_id, borrower_id, borrow_date, return_date)
+
+Python Integration:
+
+Use Python to perform CRUD operations:
+
+•Add, update, or delete books/authors/borrowers.
+•Mark a book as borrowed or returned.
+•Retrieve information, such as:
+•Available books.
+•Books borrowed by a specific user.
+•Most borrowed books or authors.
+
+Generate a simple report:
+
+•Number of books borrowed in the last week.
+
+Tech Stack:
+
+•SQL: SQLite for simplicity (or MySQL/PostgreSQL if preferred).
+•Python: Use libraries like sqlite3/mysql.connector, and optionally pandas for data analysis.
+
+Stretch Goals: (Optional, for extra testing)
+
+•Add validation (e.g., prevent borrowing of unavailable books).
+•Use Python's tkinter or a web framework like Flask to create a basic UI.
+
+Expected Deliverables:
+
+•SQL script to set up the database.
+•Python scripts for CRUD operations and reporting.
+
+(Optional) A basic user interface or command-line interface.

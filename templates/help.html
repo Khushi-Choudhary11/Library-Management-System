@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Authors</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+<h1>Welcome to the Help Page!</h1>
+<h3>How to Borrow a Book</h3>
+<ul><li>To borrow a book, select a book from the available books list under Borrow section.</li></ul>
+<br>
+<h3>How to Return a Book</h3>
+<ul><li>After borrowing a book, you can return it by selecting the book and specifying the return date under Return Book section.</li></ul>
+<br>
+<h3>Features:</h3>
+<ul>
+    <li>View Available Books: Browse through the library's catalog of books, sorted by genre, author, and availability.</li>
+    <li>Borrow Books: Easily borrow books by selecting from the available titles and specifying the borrow date.</li>
+    <li>Return Books: When you're finished, simply return books to update their availability in the library.</li>
+    <li>Manage Authors: Add and view authors to ensure the library's database stays updated.</li>
+</ul>
+
+
+{% endblock %}
+</body>
+</html>
