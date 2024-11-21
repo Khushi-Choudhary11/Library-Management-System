@@ -239,17 +239,18 @@ def weekly_borrow_report():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-
+        
         query = """
             SELECT b.title AS book_title, 
-                   STRING_AGG(bo.name || ' (' || TO_CHAR(bb.borrow_date, 'YYYY-MM-DD') || ')', ', ') AS borrower_details,
+                   bo.name AS borrower_name, 
+                   bb.borrow_date, 
                    COUNT(bb.book_id) AS borrow_count
             FROM Borrowed_Books bb
             JOIN Books b ON bb.book_id = b.id
             JOIN Borrowers bo ON bb.borrower_id = bo.id
             WHERE bb.borrow_date >= (CURRENT_DATE - INTERVAL '7 days')
-            GROUP BY b.id
-            ORDER BY borrow_count DESC
+            GROUP BY b.id, bo.name, bb.borrow_date
+            ORDER BY borrow_count DESC, bb.borrow_date ASC
         """
         cursor.execute(query)
         report_data = cursor.fetchall()
