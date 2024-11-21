@@ -73,7 +73,7 @@ python library.py
 
 ## HOW TO USE PROJECT:
 - Set up the database using the provided SQL scripts.Ensure PostgreSQL is running.
-(NOTE: inside function get_db_connection() remember to use your own **dbname** and **password** rest 3 are same for all users)
+(NOTE: inside function get_db_connection() remember to use your own **dbname** and **password**   and the rest 3 are same for all users. Also, insert the test_data values into respective table using test_data.csv in PostgreSQL or web app.)
 - Install basic needed dependencies .
 - Run library_mgmt.py to launch the web app.
 - Use the web interface for all operations: Add, View, Borrow, and Return books.
