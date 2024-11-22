@@ -30,13 +30,13 @@ Functions to add, update, delete, and fetch records from the tables:
 - Borrowed_Books: Functions to handle borrowing and returning operations.
 EXAMPLE:
 ```
-from lib import add_book, get_books
+from lib import add_book, get_available_books
 
 # Adding a new book
 add_book("B011", "1984", "A003", "Dystopian Fiction")
 
 # Fetching all available books
-books = get_books()
+books = get_available_books()
 print(books)
 ```
 
