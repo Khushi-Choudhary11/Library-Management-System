@@ -8,6 +8,7 @@ conn = psycopg2.connect(
     host="127.0.0.1",
     port="5433"
 )
+
 cursor = conn.cursor()
 
 # Add a new book
@@ -44,6 +45,112 @@ def get_available_books():
     cursor.execute("SELECT * FROM books WHERE availability = 't'")
     return cursor.fetchall()
 
+def delete_book(book_id):
+    cursor = conn.cursor()
+    # Delete the book
+    cursor.execute("DELETE FROM Books WHERE id = %s", (book_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return f"Book with ID {book_id} has been deleted successfully."
+    
+def update_book(book_id, title=None, author_id=None, genre=None, availability=None):
+    cursor = conn.cursor()
+    update_fields = []
+    params = []
+    
+    if title:
+        update_fields.append("title = %s")
+        params.append(title)
+    if author_id:
+        update_fields.append("author_id = %s")
+        params.append(author_id)
+    if genre:
+        update_fields.append("genre = %s")
+        params.append(genre)
+    if availability is not None:
+        update_fields.append("availability = %s")
+        params.append(availability)
+
+    # Ensure there is something to update
+    if not update_fields:
+        return "No fields to update."
+
+    query = f"UPDATE Books SET {', '.join(update_fields)} WHERE id = %s"
+    params.append(book_id)
+
+    cursor.execute(query, tuple(params))
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+    return f"Book with ID {book_id} has been updated successfully."
+
+# To Update Author
+def update_author(author_id, name=None, country=None):
+    cursor = conn.cursor()
+    update_fields = []
+    params = []
+    if name:
+        update_fields.append("name = %s")
+        params.append(name)
+    if country:
+        update_fields.append("country = %s")
+        params.append(country)
+
+    if not update_fields:
+        return "No fields to update."
+
+    query = f"UPDATE Authors SET {', '.join(update_fields)} WHERE id = %s"
+    params.append(author_id)
+    cursor.execute(query, tuple(params))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return f"Author with ID {author_id} has been updated successfully."
+
+#To Delete Author
+def delete_author(author_id):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM Authors WHERE id = %s", (author_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return f"Author with ID {author_id} has been deleted successfully."
+
+#To Update Borrower
+def update_borrower(borrower_id, name=None, contact=None):
+    cursor = conn.cursor()
+    update_fields = []
+    params = []
+    if name:
+        update_fields.append("name = %s")
+        params.append(name)
+    if contact:
+        update_fields.append("contact = %s")
+        params.append(contact)
+    if not update_fields:
+        return "No fields to update."
+
+    query = f"UPDATE Borrowers SET {', '.join(update_fields)} WHERE id = %s"
+    params.append(borrower_id)
+
+    cursor.execute(query, tuple(params))
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+    return f"Borrower with ID {borrower_id} has been updated successfully."
+
+# To Delete Borrower
+def delete_borrower(borrower_id):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM Borrowers WHERE id = %s", (borrower_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return f"Borrower with ID {borrower_id} has been deleted successfully."
+
 # Close the connection
 def close_connection():
     cursor.close()
@@ -51,8 +158,19 @@ def close_connection():
 
 # Example usage
 if __name__ == '__main__':
-    # Example: Add a new book
+    # Example:Add a new book
+
     # add_author('A019','Vikram Seth','India')
     # books = get_available_books()
     # print("Available Books:", books)
-    close_connection()
+    
+#Example: To Update Book
+#     message = update_book(
+#     book_id="B011",
+#     title="New Title",
+#     author_id="A011",
+#     genre="Science Fiction",
+#     availability=True
+# )
+#     print(message)
+    close_connection() 
