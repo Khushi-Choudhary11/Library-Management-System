@@ -114,7 +114,8 @@ def borrow_book():
                 """,
                 (book_id, borrower_id, borrow_date, return_date)
             )
-            
+
+            # Update availability in Books table
             cursor.execute("UPDATE Books SET availability = FALSE WHERE id = %s", (book_id,))
             conn.commit()
 
@@ -153,7 +154,7 @@ def return_book():
                 (return_date, book_id)
             )
 
-            
+            # Set the book's availability to TRUE
             cursor.execute(
                 "UPDATE Books SET availability = TRUE WHERE id = %s",
                 (book_id,)
@@ -232,7 +233,7 @@ def add_borrower():
     
     return render_template('add_borrower.html')
 
-
+# Route : Weekly Borrow Report
 # Route: Weekly Borrow Report
 @app.route('/report/weekly')
 def weekly_borrow_report():
@@ -261,7 +262,7 @@ def weekly_borrow_report():
         return render_template('weekly_report.html', report_data=report_data)
     except Exception as e:
         return f"Error: {str(e)}"
-
+    
 # Route: help page
 @app.route('/help')
 def help():
@@ -333,5 +334,7 @@ def get_borrowed_books():
 # Run the application
 if __name__ == "__main__":
     app.run(debug=True)
+
+  
 
   
