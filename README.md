@@ -67,7 +67,7 @@ The project dependencies are listed in the `requirements.txt` file. (Note: requi
 ### USAGE:
 - Run the web app using:
 ```bash
-python library.py
+python library_mgmt.py
 ```
 - Access the app in a browser at http://127.0.0.1:5000/.
 
