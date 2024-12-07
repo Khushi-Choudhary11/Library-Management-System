@@ -42,7 +42,7 @@ print(books)
 
 
 ## library_mgmt.py 
-This file uses Flask to build a web application interface for the LMS. It provides a user-friendly way to interact with the backend functions.Each route in Flask corresponds to a specific action (e.g., adding books, viewing authors).Web Interface:
+This file uses Flask to build a web application interface for the LMS. It provides a user-friendly way to interact with the backend functions.Each route in Flask corresponds to a specific action (e.g., adding books, viewing authors).
 
 ### Web Interface:
 
@@ -57,7 +57,7 @@ This file uses Flask to build a web application interface for the LMS. It provid
 
 
 ## Dependencies
-The project dependencies are listed in the `requirements.txt` file. (Note: requirements.txt not only contains requirements for this project but also some others too so You can skip those). 
+The project dependencies are listed in the `requirements.txt` file. (Note: requirements.txt not only contains requirements for this project but also some others too so you can skip those). 
 
 ### Key Dependencies
 - `Flask`: For building the web application.
