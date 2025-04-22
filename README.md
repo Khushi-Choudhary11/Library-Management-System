@@ -118,5 +118,4 @@ The database consists of the following tables:
 
 ## Contact
 For questions or feedback, feel free to reach out to:
-- **Your Name**: khushich9085@gmail.com
 - **GitHub**: (https://github.com/Khushi-Choudhary11)
