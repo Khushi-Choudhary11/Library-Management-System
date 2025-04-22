@@ -12,7 +12,7 @@ def get_db_connection():
         conn = psycopg2.connect(
             dbname="Library Management System",
             user="postgres",
-            password="k123456789ch",
+            password="(same as your pgadmin)",
             host="127.0.0.1",
             port="5433"
         )
