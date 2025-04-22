@@ -4,7 +4,7 @@ import psycopg2
 conn = psycopg2.connect(
     dbname="Library Management System",
     user="postgres",
-    password="k123456789ch",
+    password="(same as ur pgadmin)",
     host="127.0.0.1",
     port="5433"
 )
